@@ -45,7 +45,7 @@
       <path value="$PROJECT_DIR$/vendor/itees/core" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="1908" />
     <option name="width" value="1941" />
     <option name="height" value="2112" />
@@ -108,15 +108,15 @@
       <option name="presentableId" value="Default" />
       <updated>1589394381544</updated>
       <workItem from="1589394382891" duration="2310000" />
-      <workItem from="1589397581298" duration="1030000" />
+      <workItem from="1589397581298" duration="1443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3340000" />
+    <option name="totallyTimeSpent" value="3753000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1272" y="0" width="1294" height="1408" extended-state="0" />
+    <frame x="1272" y="0" width="1294" height="1408" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25364667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
