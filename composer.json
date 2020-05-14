@@ -1,7 +1,7 @@
 {
   "autoload": {
     "psr-4": {
-      "itees\\": "vendor/itees",
+      "itees\\": "vendor/itees/core",
       "app\\": "app"
     }
   },
