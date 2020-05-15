@@ -1,5 +1,5 @@
 <?php
 
 function debug($arr){
-    echo print_r($arr, true);
+    echo '<pre>' . print_r($arr, true) . '</pre>';
 }
