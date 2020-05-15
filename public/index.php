@@ -7,4 +7,5 @@ require_once LIBS . '/functions.php';
 new \itees\App();
 
 //var_dump(\itees\App::$app->getProperties());
-debug(\itees\App::$app->getProperties());
+//debug(\itees\App::$app->getProperties());
+throw new Exception('Страница не найдена', 500);
