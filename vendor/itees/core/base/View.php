@@ -2,7 +2,7 @@
 
 namespace itees\base;
 
-abstract class View {
+class View {
 
     public $route;
     public $controller;
@@ -11,7 +11,7 @@ abstract class View {
     public $prefix;
     public $layout;
     public $data = [];
-    public $meta = [];
+    public $meta = ['title'=>'', 'desc'=>'', 'keywords'=>''];
 
     public function __construct ($route, $layout = '', $view = '', $meta = '') {
         $this->route = $route;
@@ -23,8 +23,38 @@ abstract class View {
         if ($layout === false) {
             $this->layout = false;
         } else {
-            $this->layout = $layout ? $layout : LAYOUT ;
+            $this->layout = $layout ?: LAYOUT ;
         }
+    }
+
+    public function render($data) {
+
+        if (is_array($data)) extract($data);
+
+        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+        if (is_file($viewFile)) {
+            ob_start();
+            require_once $viewFile;
+            $content = ob_get_clean();
+        } else {
+            throw new \Exception("Не найден вид {$viewFile}", 500);
+        }
+
+        if ($this->layout !== false) {
+            $layoutFile = APP . "/views/layouts/{$this->layout}.php";
+            if (is_file($viewFile)) {
+                require_once $layoutFile;
+            } else {
+                throw new \Exception("Не найден шаблон {$layoutFile}", 500);
+            }
+        }
+    }
+
+    public function makeMeta() {
+        $output = '<title>' . $this->meta['title'] . '</title>' . PHP_EOL;
+        $output .= '    <meta name="description" content="' . $this->meta['desc'] . '">' . PHP_EOL;
+        $output .= '    <meta name="keywords" content="' . $this->meta['keywords'] . '">' . PHP_EOL;
+        return $output;
     }
 
 }

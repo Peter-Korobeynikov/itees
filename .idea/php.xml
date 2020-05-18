@@ -6,5 +6,14 @@
       <path value="$PROJECT_DIR$/vendor/itees/core" />
     </include_path>
   </component>
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="192.168.1.80" id="15a2c61d-89a5-414c-a524-b14c6399d845" name="192.168.1.80">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/public" remote-root="D:/Peter/Documents/.projects/www/itees" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />
 </project>

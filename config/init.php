@@ -8,6 +8,7 @@ define ("CORE", ROOT . '/vendor/itees/core');
 define ("LIBS", ROOT . '/vendor/itees/core/libs');
 define ("CACHE", ROOT . '/tmp/cache');
 define ("CONF", ROOT . '/config');
+define ("LAYOUT", 'default');
 
 // http://itees.loc/public/index.php
 $app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}";

@@ -11,18 +11,8 @@ class Router
         self::$routes[$regexp] = $route;
     }
 
-    /**
-     * @return array
-     */
-    public static function getRoutes(): array {
-        return self::$routes;
-    }
-    /**
-     * @return array
-     */
-    public static function getRoute(): array {
-        return self::$route;
-    }
+    public static function getRoutes(): array { return self::$routes; }     // @return array
+    public static function getRoute(): array { return self::$route; }
 
     public static function dispatch($url) {
         if (self::matchRoute($url)) {
@@ -33,6 +23,7 @@ class Router
                 $action = self::lowerCamelCase(self::$route['action']) . 'Action';
                 if (method_exists($controllerObject, $action)) {
                     $controllerObject->$action();
+                    $controllerObject->makeView();
                 } else {
                     throw new \Exception("Метод $controller::$action не найден", 404);
                 }
@@ -63,12 +54,12 @@ class Router
         return false;
     }
 
-    private static function upperCamelCase($name) {
+    protected static function upperCamelCase($name) {
         $_name = ucwords(str_replace('-', ' ', $name));
         return str_replace(' ', '', $_name);
     }
 
-    private static function lowerCamelCase($name) {
+    protected static function lowerCamelCase($name) {
         return lcfirst(self::upperCamelCase($name));
     }
 
