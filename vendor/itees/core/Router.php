@@ -14,7 +14,9 @@ class Router
     public static function getRoutes(): array { return self::$routes; }     // @return array
     public static function getRoute(): array { return self::$route; }
 
-    public static function dispatch($url) {
+    public static function dispatch($url='') {
+        $url = self::removeQueryString($url);
+        //dump($url);
         if (self::matchRoute($url)) {
             $controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
             //echo $controller;
@@ -63,4 +65,14 @@ class Router
         return lcfirst(self::upperCamelCase($name));
     }
 
+    protected static function removeQueryString($url) {
+        if ($url) {
+            $params = explode('&', $url, 2);
+            //debug($params);
+            if (strpos($params[0], '=') === false) {
+                return rtrim($params[0], '/');
+            } return '';
+        }
+        return $url;
+    }
 }
